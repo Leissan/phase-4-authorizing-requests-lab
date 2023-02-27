@@ -16,7 +16,7 @@ class MembersOnlyArticlesController < ApplicationController
   private
 
   def authorize
-    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :is_member_only
+    return render json: { error: "Not authorized" }, status: :unauthorized if session.include? :is_member_only
   end
 
   def record_not_found
